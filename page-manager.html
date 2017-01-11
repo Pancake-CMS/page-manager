@@ -3,6 +3,14 @@
 
 <dom-module id="page-manager">
     <template>
+        <style type="text/css">
+        :host {
+                display: none;
+            }
+            :host([active]){
+                display: block;
+            }
+        </style>
         <node-manager fbnode="pages" route="{{route}}"></node-manager>
     </template>
     <script>
