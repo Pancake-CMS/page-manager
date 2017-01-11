@@ -1,0 +1,13 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/node-manager/node-manager.html">
+
+<dom-module id="page-manager">
+    <template>
+        <node-manager fbnode="pages" route="{{route}}"></node-manager>
+    </template>
+    <script>
+        Polymer({
+            is: 'page-manager'
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,20 @@
+{
+  "name": "page-manager",
+  "homepage": "https://github.com/Pancake-CMS/page-manager",
+  "authors": [
+    "Prateek Jadhwani <prateekjadhwani@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "page-manager.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "node-manager": "pancake-cms-node-manager#*"
+  }
+}
