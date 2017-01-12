@@ -1,5 +1,10 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../node-manager/node-manager.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../polymerfire/firebase-document.html">
 
 <dom-module id="page-manager">
     <template>
@@ -11,11 +16,27 @@
                 display: block;
             }
         </style>
-        <node-manager fbnode="pages" route="{{route}}"></node-manager>
+        <firebase-document
+            path="/locales"
+            data="{{locales}}">
+        </firebase-document>
+        <paper-dropdown-menu label="Locale">
+            <paper-listbox class="dropdown-content">
+                <template is="dom-repeat" items="[[locales]]">
+                    <paper-item>{{item}}</paper-item>
+                </template>
+            </paper-listbox>
+        </paper-dropdown-menu>
+        <paper-button on-click="_updateFBNode">Get Page List</paper-button>
+        <node-manager fbnode$="{{fbnode}}" route="{{route}}"></node-manager>
     </template>
     <script>
         Polymer({
-            is: 'page-manager'
+            is: 'page-manager',
+
+            _updateFBNode: function() {
+                this.fbnode = 'pages/' + this.$$('paper-dropdown-menu').selectedItemLabel;
+            }
         });
     </script>
 </dom-module>
