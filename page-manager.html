@@ -14,20 +14,27 @@
             }
             :host([active]){
                 display: block;
+                margin: 0 auto;
+                width: 80%;
+            }
+            .center: {
+                text-align: center;
             }
         </style>
         <firebase-document
             path="/locales"
             data="{{locales}}">
         </firebase-document>
-        <paper-dropdown-menu label="Locale">
-            <paper-listbox class="dropdown-content">
-                <template is="dom-repeat" items="[[locales]]">
-                    <paper-item>{{item}}</paper-item>
-                </template>
-            </paper-listbox>
-        </paper-dropdown-menu>
-        <paper-button on-click="_updateFBNode">Get Page List</paper-button>
+        <div class="center">
+            <paper-dropdown-menu label="Locale">
+                <paper-listbox class="dropdown-content">
+                    <template is="dom-repeat" items="[[locales]]">
+                        <paper-item>{{item}}</paper-item>
+                    </template>
+                </paper-listbox>
+            </paper-dropdown-menu>
+            <paper-button on-click="_updateFBNode">Get Page List</paper-button>
+        </div>
         <node-manager fbnode$="{{fbnode}}" route="{{route}}" is-approvals-page$="[[isApprovalsPage]]"></node-manager>
     </template>
     <script>
